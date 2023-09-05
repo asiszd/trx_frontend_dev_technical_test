@@ -26,21 +26,6 @@ const WhiteBorderTextField = styled(TextField)`
   }
 `;
 
-async function getData() {
-  const res = await fetch(
-    "https://5qewqsdgrl.execute-api.us-west-1.amazonaws.com//challenge/route/dummy"
-  );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
 export default async function Vehiculos() {
   let res = await fetch(
     "https://5qewqsdgrl.execute-api.us-west-1.amazonaws.com//challenge/route/dummy"
