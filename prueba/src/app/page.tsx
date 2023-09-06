@@ -28,7 +28,7 @@ const comfortaa = Comfortaa({ subsets: ["latin"] });
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme({
   typography: {
-    fontFamily: comfortaa,
+    fontFamily: "Comfortaa",
     allVariants: {
       color: "white",
     },

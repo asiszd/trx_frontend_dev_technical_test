@@ -7,7 +7,11 @@ import { Box, Grid, Paper } from "@mui/material";
 import Vehiculos from "../Vehiculos/Vehiculos";
 import { Typography } from "@mui/material";
 import vehiculos from "../../../public/carMock.json";
-import MUIDataTable from "mui-datatables";
+import MUIDataTable, {
+  FilterType,
+  Responsive,
+  SelectableRows,
+} from "mui-datatables";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NavBar from "../NavBar";
 
@@ -59,12 +63,11 @@ function TablaVehiculos() {
   ];
 
   const options = {
-    filterType: "dropdown",
-    responsive: "standard",
+    filterType: "dropdown" as FilterType,
+    responsive: "standard" as Responsive,
     download: false,
     print: false,
-    selectableRows: false,
-    onRowClick: (rowData: any) => console.log(rowData),
+    selectableRows: "none" as SelectableRows,
   };
   return (
     <div className="sd">
@@ -80,11 +83,6 @@ function TablaVehiculos() {
       </Typography>
     </div>
   );
-}
-
-function addMark() {
-  const [map, setMap] = React.useState<mapboxgl.Map>();
-  const mapNode = React.useRef(null);
 }
 
 function MapboxMap() {
@@ -127,17 +125,17 @@ function MapboxMap() {
           "line-color": "black",
         },
       });
-      mapboxMap.loadImage("mapMarker2.png", (error, image) => {
-        if (error) throw error;
-        mapboxMap.addImage("marker", image);
-      });
+      const image = new Image(24, 24);
+      image.src = "from.png";
+      mapboxMap.addImage("marker", image);
+
       mapboxMap.addLayer({
         id: "routes-endpoints",
         type: "symbol",
         source: "routes",
         layout: {
           "icon-image": "marker",
-          "icon-size": 0.026,
+          "icon-size": 1.5,
         },
         filter: ["==", "$type", "Point"],
       });
