@@ -46,6 +46,13 @@ const getMuiTheme = () =>
           },
         },
       },
+      MuiButton:{
+        styleOverrides:{
+          root:{
+            fontWeight: 'bold'
+          }
+        }
+      }
     },
   });
 
@@ -74,7 +81,7 @@ function TablaVehiculos() {
       <Typography fontFamily="Comfortaa" color="textPrimary">
         <ThemeProvider theme={getMuiTheme()}>
           <MUIDataTable
-            title={"Employee List"}
+            title={""}
             data={vehiculos}
             columns={columns}
             options={options}
