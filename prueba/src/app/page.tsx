@@ -25,27 +25,6 @@ const MapboxMap = dynamic(() => import("@/components/Mapas/Mapas"), {
 });
 const comfortaa = Comfortaa({ subsets: ["latin"] });
 
-function Copyright(props: any) {
-  // HACERLO COMO FOOTER EN OTRO COMPONENTE
-
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      fontFamily="Comfortaa"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme({
   typography: {
